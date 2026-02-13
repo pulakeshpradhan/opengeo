@@ -7,7 +7,7 @@ The OpenGeo API is structured to mirror the Earth Engine Python API, making it f
 OpenGeo provides the following core classes that correspond to Earth Engine's API:
 
 | OpenGeo Class | Earth Engine Equivalent | Description |
-|---------------|------------------------|-------------|
+| --- | --- | --- |
 | [`og.Image`](image.md) | `ee.Image` | Operations on single multi-band raster images |
 | [`og.ImageCollection`](image_collection.md) | `ee.ImageCollection` | Operations on groups of raster images |
 | [`og.FeatureCollection`](feature_collection.md) | `ee.FeatureCollection` | Operations on vector datasets |
