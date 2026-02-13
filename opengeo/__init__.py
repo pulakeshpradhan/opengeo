@@ -18,6 +18,7 @@ from .image_collection import ImageCollection
 from .feature import Feature
 from .feature_collection import FeatureCollection
 from .geometry import Geometry
+from .map import Map
 from .config import Initialize, STAC_API, DisplayCatalogs, Catalogs, Catalog, Urls, Aliases, Collections, Items, Assets, Item, AssetUrls, DisplayItem
 
 __all__ = [

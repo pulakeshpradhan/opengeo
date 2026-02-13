@@ -188,3 +188,7 @@ def Initialize(url=None):
 
 def STAC_API():
     return _STAC_API
+
+def get_stac_api():
+    """Internal helper to return the current STAC API URL."""
+    return _STAC_API
