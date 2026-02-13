@@ -1,0 +1,84 @@
+site_name: OpenGeo
+site_url: https://pulakeshpradhan.github.io/opengeo/
+repo_url: https://github.com/pulakeshpradhan/opengeo
+repo_name: pulakeshpradhan/opengeo
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  logo: assets/logo.png  # I'll check if a logo exists or generate one
+  favicon: assets/favicon.ico
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep orange
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep orange
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [.]
+  - mkdocs-jupyter:
+      include_source: true
+  - git-revision-date-localized:
+      type: timeago
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Usage: usage.md
+  - Examples:
+      - Introduction: examples/intro.md
+      - NDVI Analysis: examples/landsat8_ndvi_analysis.ipynb
+      - Sentinel-2 Analysis: examples/sentinel2_analysis_element84.ipynb
+      - Landsat Analysis: examples/landsat_analysis_usgs.ipynb
+      - MODIS Analysis: examples/modis_analysis_nasa.ipynb
+      - SAR Analysis: examples/sar_analysis_umbra_capella.ipynb
+  - API Reference:
+      - Overview: api/index.md
+      - Image: api/image.md
+      - ImageCollection: api/image_collection.md
+      - FeatureCollection: api/feature_collection.md
+      - Geometry: api/geometry.md
+      - Map: api/map.md

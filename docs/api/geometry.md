@@ -1,0 +1,3 @@
+# Geometry
+
+::: opengeo.geometry.Geometry
