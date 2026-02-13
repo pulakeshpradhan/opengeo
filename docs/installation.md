@@ -2,9 +2,23 @@
 
 Installing OpenGeo is straightforward. We recommend using a virtual environment to manage dependencies.
 
-## Standard Installation
+## 📦 Quick Install
 
-You can install OpenGeo and its dependencies via `pip`.
+=== "From Source (Recommended)"
+    ```bash
+    git clone https://github.com/pulakeshpradhan/opengeo.git
+    cd opengeo
+    pip install -e .
+    ```
+
+=== "From PyPI (Coming Soon)"
+    ```bash
+    pip install opengeo
+    ```
+
+---
+
+## 🔧 Standard Installation
 
 ### 1. Create a Virtual Environment
 
@@ -36,22 +50,63 @@ Install the package in editable mode if you are developing or just want to use t
 pip install -e .
 ```
 
-## Dependencies
+---
+
+## 📚 Dependencies
 
 OpenGeo relies on the following key libraries:
 
-* **pystac-client**: For searching STAC catalogs.
-* **stackstac**: For loading STAC items into Xarray.
-* **xarray**: For N-dimensional array processing.
-* **dask**: For lazy evaluation and parallel computing.
-* **geopandas**: For vector data handling.
-* **leafmap**: For interactive visualization.
+| Library | Purpose |
+|---------|---------|
+| **pystac-client** | Searching STAC catalogs |
+| **stackstac** | Loading STAC items into Xarray |
+| **xarray** | N-dimensional array processing |
+| **dask** | Lazy evaluation and parallel computing |
+| **geopandas** | Vector data handling |
+| **shapely** | Geometric operations |
+| **leafmap** | Interactive visualization |
+| **rioxarray** | Raster I/O with Xarray |
 
-## Verification
+---
+
+## ✅ Verification
 
 To verify the installation, try importing `opengeo` in a Python shell:
 
 ```python
 import opengeo as og
-print(og.__version__)
+print(f"OpenGeo version: {og.__version__}")
+
+# Test basic functionality
+og.Initialize()
+print("OpenGeo initialized successfully!")
 ```
+
+---
+
+## 🐛 Troubleshooting
+
+!!! warning "Common Issues"
+
+    **GDAL Installation Issues**
+    
+    If you encounter GDAL-related errors, try installing it via conda:
+    ```bash
+    conda install -c conda-forge gdal
+    ```
+    
+    **Memory Issues with Large Datasets**
+    
+    Configure Dask to limit memory usage:
+    ```python
+    import dask
+    dask.config.set({'array.chunk-size': '128MB'})
+    ```
+
+!!! tip "Recommended Setup"
+    For the best experience, we recommend using **Python 3.9-3.11** with a conda environment:
+    ```bash
+    conda create -n opengeo python=3.11
+    conda activate opengeo
+    pip install -e .
+    ```

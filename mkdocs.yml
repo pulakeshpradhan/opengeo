@@ -1,8 +1,11 @@
 site_name: OpenGeo
 site_url: https://pulakeshpradhan.github.io/opengeo/
+site_description: A Google Earth Engine-like Python package using open-source geospatial tools
+site_author: Pulakesh Pradhan
 repo_url: https://github.com/pulakeshpradhan/opengeo
 repo_name: pulakeshpradhan/opengeo
 edit_uri: edit/main/docs/
+copyright: Copyright &copy; 2026 Pulakesh Pradhan
 
 theme:
   name: material
@@ -28,10 +31,25 @@ theme:
     - navigation.sections
     - navigation.top
     - navigation.tracking
+    - navigation.indexes
+    - navigation.footer
     - search.highlight
     - search.share
     - search.suggest
     - toc.follow
+    - toc.integrate
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/pulakeshpradhan/opengeo
+      name: OpenGeo on GitHub
+
+extra_css:
+  - assets/extra.css
 
 plugins:
   - search
@@ -39,9 +57,19 @@ plugins:
       handlers:
         python:
           paths: [.]
+          options:
+            show_source: true
+            show_root_heading: true
+            show_root_full_path: false
+            docstring_style: google
   - mkdocs-jupyter:
       include_source: true
+      execute: false
+      allow_errors: false
+      kernel_name: python3
+      include_requirejs: true
   - git-revision-date-localized:
+      enable_creation_date: true
       type: timeago
   - minify:
       minify_html: true
